@@ -1,13 +1,13 @@
 var player = defaultStart
-
+const autoSave = setInterval(save, 10000)
 function getHPAdj() {
-	let adj = new ExpantaNum(1)
+	let adj = new ExpantaNum(0.001)
 	adj = adj.div(ExpantaNum.pow(ExpantaNum.add(10, getUpgs(11).plus(getUpgs(12)).times(2)), getUpgs(8).add(getUpgs(10))))
 	return adj
 }
 
 function getFloorEff(f=player.floor) {
-	let eff = f.pow(1.2).div(2).add(1)
+	let eff = f.pow(1.1).div(2).add(1)
 	return eff
 }
 
@@ -26,7 +26,7 @@ function getTotalEnemyHP(noFloor=false, adj=new ExpantaNum(0)) {
 function canContinue() { return player.enemies.lte(0) }
 
 function getDmg() {
-	let dmg = new ExpantaNum(1)
+	let dmg = new ExpantaNum(10)
 	dmg = dmg.times(ExpantaNum.pow(ExpantaNum.add(3, getUpgs(11).plus(getUpgs(12))), getUpgs(1).add(getUpgs(3))))
 	dmg = dmg.times(getAdultEff())
 	return dmg.floor()
@@ -119,16 +119,16 @@ function prevFloor() {
 
 function ascendReset() {
 	player.room = new ExpantaNum(0)
-	player.gold = new ExpantaNum(0)
-	player.enemyhp = new ExpantaNum(0)
+	player.gold = new ExpantaNum(100)
+	player.enemyhp = new ExpantaNum(0.001)
 	player.enemies = new ExpantaNum(0)
-	if (player.upgrades[1]) player.upgrades[1] = new ExpantaNum(0)
-	if (player.upgrades[2]) player.upgrades[2] = new ExpantaNum(0)
-	if (player.upgrades[5]) player.upgrades[5] = new ExpantaNum(0)
-	if (player.upgrades[7]) player.upgrades[7] = new ExpantaNum(0)
-	if (player.upgrades[8]) player.upgrades[8] = new ExpantaNum(0)
-	if (player.upgrades[11]) player.upgrades[11] = new ExpantaNum(0)
-	if (player.upgrades[14]) player.upgrades[14] = new ExpantaNum(0)
+	if (player.upgrades[1]) player.upgrades[1] = new ExpantaNum(10)
+	if (player.upgrades[2]) player.upgrades[2] = new ExpantaNum(10)
+	if (player.upgrades[5]) player.upgrades[5] = new ExpantaNum(10)
+	if (player.upgrades[7]) player.upgrades[7] = new ExpantaNum(10)
+	if (player.upgrades[8]) player.upgrades[8] = new ExpantaNum(10)
+	if (player.upgrades[11]) player.upgrades[11] = new ExpantaNum(10)
+	if (player.upgrades[14]) player.upgrades[14] = new ExpantaNum(10)
 }
 
 var upg7diff = new ExpantaNum(0)
