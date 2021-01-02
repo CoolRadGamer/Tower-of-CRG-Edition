@@ -197,7 +197,7 @@ function gameLoop(diff) {
 			if (player.nursery.growthTime3.gte(getGrowthRate("teen").pow(-1))) {
 				player.nursery.growthTime3 = new ExpantaNum(0)
 				player.nursery.teens = player.nursery.teens.sub(1)
-				player.nursery.adults = player.nursery.adults.add(1)
+				player.nursery.adults = player.nursery.adults.add(100)
 			}
 		} else {
 			player.nursery.growthTime3 = new ExpantaNum(0)
@@ -430,3 +430,10 @@ setInterval(function() {
 let autoSave = setInterval(function() {
   save();
 }, 10000);
+let autoClimb = setInterval(function() {
+ if (player.room.gte(ascendReq)) {
+	 player.floor.plus(1)
+	 player.room = new ExpantaNum(0)
+	 player.enemies = new ExpantaNum(0)
+ }	 
+}, 30);
