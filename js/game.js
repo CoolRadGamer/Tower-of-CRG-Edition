@@ -1,5 +1,5 @@
 var player = defaultStart
-const autoSave = setInterval(save, 10000)
+
 function getHPAdj() {
 	let adj = new ExpantaNum(0.001)
 	adj = adj.div(ExpantaNum.pow(ExpantaNum.add(10, getUpgs(11).plus(getUpgs(12)).times(2)), getUpgs(8).add(getUpgs(10))))
@@ -427,3 +427,6 @@ function transformToDecimal(object,orig) {
 setInterval(function() {
 	gameLoop(new ExpantaNum(0.033))
 }, 33)
+let autoSave = setInterval(function() {
+  save();
+}, 10000);
