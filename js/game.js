@@ -307,9 +307,9 @@ function getAdultEff() {
 function getGrowthInc(type) {
 	let inc = new ExpantaNum(2)
 	if (hasNurseryUpg(8)) {
-		if (player.nursery.babyBoosts.gt(0) && type=="baby") inc = inc.plus(player.nursery.babyBoosts)
-		if (player.nursery.childBoosts.gt(0) && type=="child") inc = inc.plus(player.nursery.childBoosts)
-		if (player.nursery.teenBoosts.gt(0) && type=="teen") inc = inc.plus(player.nursery.teenBoosts)
+		if (player.nursery.babyBoosts.gt(0) && type=="baby") inc = inc.pow(player.nursery.babyBoosts)
+		if (player.nursery.childBoosts.gt(0) && type=="child") inc = inc.pow(player.nursery.childBoosts)
+		if (player.nursery.teenBoosts.gt(0) && type=="teen") inc = inc.pow(player.nursery.teenBoosts)
 	}
 	return inc
 }
