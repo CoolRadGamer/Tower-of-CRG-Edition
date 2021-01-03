@@ -333,8 +333,8 @@ function getGrowthRate(type) {
 
 function getHatchRate() {
 	let rate = ExpantaNum.mul(1/3, player.nursery.adults.sqrt())
-	if (hasNurseryUpg(1)) rate = rate.times(1000)
-	if (hasNurseryUpg(5)) rate = rate.times(ExpantaNum.pow(1.02, player.totalRoom));
+	if (hasNurseryUpg(1)) rate = rate.pow(10)
+	if (hasNurseryUpg(5)) rate = rate.times(ExpantaNum.pow(1.12, player.totalRoom));
 	if (hasNurseryUpg(8)) {
 		let inc = getGrowthInc("baby").root(2.3);
 		if (player.nursery.babyBoosts.gt(0)) rate = rate.times(ExpantaNum.pow(inc, player.nursery.babyBoosts))
