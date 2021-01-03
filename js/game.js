@@ -28,7 +28,11 @@ function canContinue() { return player.enemies.lte(0) }
 function getDmg() {
 	let dmg = new ExpantaNum(10)
 	dmg = dmg.times(ExpantaNum.pow(ExpantaNum.add(3, getUpgs(11).plus(getUpgs(12))), getUpgs(1).add(getUpgs(3))))
+	if (!hasNurseryUpg(6)) {
 	dmg = dmg.times(getAdultEff())
+	} else {
+        dmg = dmg.pow(getAdultEff().log())
+	}
 	return dmg.floor()
 }
 
