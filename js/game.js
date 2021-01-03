@@ -431,6 +431,5 @@ let autoSave = setInterval(function() {
   save();
 }, 10000);
 let autoClimb = setInterval(function() {
-nextFloor();
- }	 
+nextFloor();	 
 }, 30);
