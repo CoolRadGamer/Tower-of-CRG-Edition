@@ -293,7 +293,7 @@ function showTab(x) {
 
 function getAdultEffExp() {
 	let exp = new ExpantaNum(1.8)
-	if (hasNurseryUpg(2)) exp = exp.add(0.2)
+	if (hasNurseryUpg(2)) exp = exp.times(1.5)
 	if (player.totalFloor.gte(6)) exp = exp.add(ExpantaNum.div(getUpgs(14), 10));
 	return exp
 }
@@ -333,7 +333,7 @@ function getGrowthRate(type) {
 
 function getHatchRate() {
 	let rate = ExpantaNum.mul(1/3, player.nursery.adults.sqrt())
-	if (hasNurseryUpg(1)) rate = rate.times(10)
+	if (hasNurseryUpg(1)) rate = rate.times(1000)
 	if (hasNurseryUpg(5)) rate = rate.times(ExpantaNum.pow(1.02, player.totalRoom));
 	if (hasNurseryUpg(8)) {
 		let inc = getGrowthInc("baby").root(2.3);
