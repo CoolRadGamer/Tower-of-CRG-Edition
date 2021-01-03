@@ -5,7 +5,7 @@
 	<script type="text/javascript" src="js/constants.js"></script>
 	<script type="text/javascript" src="js/format.js"></script>
 	<script type="text/javascript" src="js/game.js"></script>
-	<title>Tower of Insanity</title>
+	<title>Tower of CRG Edition</title>
 </head>
 <body onload="load()" style="background-color:grey; color:white; margin: auto; text-align: center;">
 	<button onclick="save()">Save Game</button><br>
@@ -15,12 +15,12 @@
 		<button id="nurserytabbtn" onclick="showTab('nursery')">Nursery</button>
 	</div>
 	<div id="main" class="tab">
-		You are in Room <span id="room"></span> of Floor <span id="floor"></span>.<br><br>
-		Enemy HP: <span id="enemyhp"></span>.<br>
-		Gold: <span id="gold"></span>.<br><br>
-		<button id="nextRoom" class="longbtn" onclick="action()">Next Room</button><br>
-		<button id="nextFloor" class="longbtn" onclick="nextFloor()">Next Floor</button><br>
-		<button id="prevFloor" class="longbtn" onclick="prevFloor()">Previous Floor</button><br><br><br>
+		You have <span id="room"></span> of layer 1 ripped off from reinhouse. You have <span id="floor"></span> of layer 2 ripped off from reinhouse.<br><br>
+		Timewall gaming number: <span id="enemyhp"></span>.<br>
+		money money money money: <span id="gold"></span>.<br><br>
+		<button id="nextRoom" class="longbtn" onclick="action()">You don't need this</button><br>
+		<button id="nextFloor" class="longbtn" onclick="nextFloor()">Neither this</button><br>
+		<button id="prevFloor" class="longbtn" onclick="prevFloor()">ok you sometimes need this (prev floor)</button><br><br><br>
 		<button id="upg1" class="longbtn locked" onclick="buyUpg(1)">Multiply your damage by <span id="upg1eff">3</span>.<br>Cost: <span id="upg1cost"></span> Gold.</button>
 		<button id="upg2" class="longbtn locked" onclick="buyUpg(2)">Multiply Gold gain by <span id="upg2eff">2</span>.<br>Cost: <span id="upg2cost"></span> Gold.</button><br>
 		<div id="floor1upgs">
@@ -60,7 +60,7 @@
 			There are <span id="babies"></span> babies, which grow into children in <span id="babyGrowthRate"></span> each.<br><br>
 			<button id="boostBaby" class="longbtn2 locked" onclick="boostBaby()">Multiply baby growth rate by <span id="babyGrowthRateInc"></span><br>Cost: <span id="boostBabyCost"></span> Adults.</button><br><br>
 			<button id="nursery2" class="longbtn2 locked" onclick="buyNurseryUpg(2)">The Adult effect exponent is increased by 0.2.<br>Cost: <span id="nursery2cost"></span> Adults.</button><br><br>
-			<button id="nursery6" class="longbtn2 locked" onclick="buyNurseryUpg(6)">The Adult effect also affects Gold gain.<br>Cost: <span id="nursery6cost"></span> Adults.</button>
+			<button id="nursery6" class="longbtn2 locked" onclick="buyNurseryUpg(6)">Turn this game into ReinHouse.<br>Cost: <span id="nursery6cost"></span> Adults.</button>
 		</div>
 		<div class="column">
 			There are <span id="children"></span> children, which grow into teenagers in <span id="childGrowthRate"></span> each.<br><br>
@@ -72,7 +72,7 @@
 			There are <span id="teens"></span> teenagers, which grow into adults in <span id="teenGrowthRate"></span> each.<br><br>
 			<button id="boostTeen" class="longbtn2 locked" onclick="boostTeen()">Multiply teenager growth rate by <span id="teenGrowthRateInc"></span><br>Cost: <span id="boostTeenCost"></span> Adults.</button><br><br>
 			<button id="nursery4" class="longbtn2 locked" onclick="buyNurseryUpg(4)">All above upgrades cost 25x less.<br>Cost: <span id="nursery4cost"></span> Adults.</button><br><br>
-			<button id="nursery8" class="longbtn2 locked" onclick="buyNurseryUpg(8)">All "Multiply growth rate" upgrades are more effective based on their amount, which all now impact baby creation at a reduced rate.<br>Cost: <span id="nursery8cost"></span> Adults.</button>
+			<button id="nursery8" class="longbtn2 locked" onclick="buyNurseryUpg(8)">Turn this game into Reinhouse but actually reinhouse.<br>Cost: <span id="nursery8cost"></span> Adults.</button>
 		</div>
 	</div>
 </body>
