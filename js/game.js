@@ -41,7 +41,7 @@ function getGoldGain() {
 	p = p.div(getHPAdj())
 	let gain = p.sqrt().div(2)
 	gain = gain.times(ExpantaNum.pow(ExpantaNum.add(2, getUpgs(11).plus(getUpgs(12))), getUpgs(2).add(getUpgs(4))))
-	if (hasNurseryUpg(6)) gain = gain.pow(getAdultEff().log())
+	if (hasNurseryUpg(6)) gain = gain.pow(getAdultEff().log().log())
 	return gain.floor()
 }
 
@@ -333,7 +333,7 @@ function getGrowthRate(type) {
 
 function getHatchRate() {
 	let rate = ExpantaNum.mul(1/3, player.nursery.adults.sqrt())
-	if (hasNurseryUpg(1)) rate = rate.pow(10)
+	if (hasNurseryUpg(1)) rate = rate.pow(5)
 	if (hasNurseryUpg(5)) rate = rate.times(ExpantaNum.pow(1.12, player.totalRoom));
 	if (hasNurseryUpg(8)) {
 		let inc = getGrowthInc("baby").root(2.3);
