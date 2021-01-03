@@ -55,7 +55,11 @@ function action(bulk=new ExpantaNum(1)) {
 		}
 	} 
 	if (canContinue()) {
+		if (player.floor.gte(15)) {
+                player.room = player.room.add(10)
+	} else {	
 		player.room = player.room.add(1)
+	}
 		player.enemies = new ExpantaNum(1)
 		player.enemyhp = getTotalEnemyHP()
 	}
