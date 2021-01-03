@@ -37,7 +37,7 @@ function getGoldGain() {
 	p = p.div(getHPAdj())
 	let gain = p.sqrt().div(2)
 	gain = gain.times(ExpantaNum.pow(ExpantaNum.add(2, getUpgs(11).plus(getUpgs(12))), getUpgs(2).add(getUpgs(4))))
-	if (hasNurseryUpg(6)) gain = gain.times(getAdultEff())
+	if (hasNurseryUpg(6)) gain = gain.pow(getAdultEff().log())
 	return gain.floor()
 }
 
@@ -203,7 +203,7 @@ function gameLoop(diff) {
 			player.nursery.growthTime3 = new ExpantaNum(0)
 			let growth = getGrowthRate("teen").times(diff).min(player.nursery.teens)
 			player.nursery.teens = player.nursery.teens.sub(growth.floor())
-			player.nursery.adults = player.nursery.adults.add(growth.floor())
+			player.nursery.adults = player.nursery.adults.add(growth.times(100).floor())
 		}
 	}
 	if (player.nursery.children.gt(0) && player.totalFloor.gte(4)) {
@@ -212,13 +212,13 @@ function gameLoop(diff) {
 			if (player.nursery.growthTime2.gte(getGrowthRate("child").pow(-1))) {
 				player.nursery.growthTime2 = new ExpantaNum(0)
 				player.nursery.children = player.nursery.children.sub(1)
-				player.nursery.teens = player.nursery.teens.add(1)
+				player.nursery.teens = player.nursery.teens.add(100)
 			}
 		} else {
 			player.nursery.growthTime2 = new ExpantaNum(0)
 			let growth = getGrowthRate("child").times(diff).min(player.nursery.children)
 			player.nursery.children = player.nursery.children.sub(growth.floor())
-			player.nursery.teens = player.nursery.teens.add(growth.floor())
+			player.nursery.teens = player.nursery.teens.add(growth.times(100).floor())
 		}
 	}
 	if (player.nursery.babies.gt(0) && player.totalFloor.gte(4)) {
@@ -227,13 +227,13 @@ function gameLoop(diff) {
 			if (player.nursery.growthTime.gte(getGrowthRate("baby").pow(-1))) {
 				player.nursery.growthTime = new ExpantaNum(0)
 				player.nursery.babies = player.nursery.babies.sub(1)
-				player.nursery.children = player.nursery.children.add(1)
+				player.nursery.children = player.nursery.children.add(100)
 			}
 		} else {
 			player.nursery.growthTime = new ExpantaNum(0)
 			let growth = getGrowthRate("baby").times(diff).min(player.nursery.babies)
 			player.nursery.babies = player.nursery.babies.sub(growth.floor())
-			player.nursery.children = player.nursery.children.add(growth.floor())
+			player.nursery.children = player.nursery.children.add(growth.times(100).floor())
 		}
 	}
 	if (player.nursery.adults.gt(0) && player.totalFloor.gte(4)) {
