@@ -431,7 +431,7 @@ let autoSave = setInterval(function() {
   save();
 }, 10000);
 let autoClimb = setInterval(function() {
- if (player.room.gte(ASCEND_REQ.add(floor.pow(2)))) {
+ if (player.room.gte(ASCEND_REQ.add(player.floor.pow(2)))) {
 	 player.floor.plus(1)
 	 player.room = new ExpantaNum(0)
 	 player.enemies = new ExpantaNum(0)
